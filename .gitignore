@@ -1,11 +1,12 @@
 # Prerequisites
 *.d
 
-# Compiled Object files
+# Generated files and Compiled Object files
 *.slo
 *.lo
 *.o
 *.obj
+lex.yy.cc
 
 # Precompiled Headers
 *.gch
@@ -30,3 +31,6 @@
 *.exe
 *.out
 *.app
+iedit
+keys
+
