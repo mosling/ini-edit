@@ -1,10 +1,10 @@
 OBJS=TreeList.o iedit.o vw-curses.o lex.yy.o vw-menu.o vw-input.o
-CXXFLAGS=-w
-CFLAGS=
+CXXFLAGS=-w -DDEBUG_MODE
+CFLAGS=-DDEBUG_MODE
 CC = gcc
 CXX = g++
 LIBS = -lmenu -lpanel -lform -lncurses
-LEXER=split-xml.l
+LEXER=split-ini.l
 LEXOUTPUT=lex.yy.cc
 
 all: iedit

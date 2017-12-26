@@ -83,6 +83,8 @@ void HelpText ()
 	cout << "Editor for INI files" << endl;
 	cout << "Usage:" << endl;
 	cout << "  iedit [-h|-c] [ini-template] ini-file" << endl; 
+	cout << "     -h this small help information" << endl;
+	cout << "     -c use characters signs as border" << endl;
 	exit (1);
 }
 
@@ -140,7 +142,7 @@ int main (int argc, char **argv)
 	//! Fenster fuer das Schnellmenu
 	qm = NewWin (1,cols,lines-1,0);
 	MvWAddStr (qm, 0, 0, 
-		"  F1:help win  F2:save  F3:merge  F4:change  F5:(un)fold  F10:quit");
+		"  F1(h):help win  F2(s):save  F3(m):merge  F4(c):change /:search  F5(f):(un)fold  F10:quit");
 	//! Erzeugen des Fensters fuer die Variablenliste
 	l = lines/2-2; c = cols/2-5;
 	lheight = l-3;

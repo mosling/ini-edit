@@ -35,6 +35,7 @@ string inpSTR[9] = {
 	"Ignore this",
 };
 
+string suggestedExtension = ".xml";
 //! this variable holds the input
 string word;
 //! the line we read from input file
@@ -236,9 +237,6 @@ void dfa (state& st, int input, string word,
 	}
 }
 
-//! this function is demanded by some LEX-implementations
-int yywrap() {return 1;}
-
 /*! 
 This function reads an IniFile with name fname into the TreeList
 inifile. If the file not exists false is returned. You can call this
@@ -250,6 +248,20 @@ end of your existing list, no structure is added.
 */
 bool ReadIniFile (char *fname, TreeList& inifile)
 {
+	string myFile = fname;
+	int sl = suggestedExtension.size();
+	if( myFile.substr( myFile.size()-sl,sl) != suggestedExtension)
+	{
+		string dummy;
+		std::cout << "This is possibly the wrong parser, the suggested extension is " 
+		          << suggestedExtension << " use it? (y/n)" << std::endl; 
+		std::cin >> dummy;
+		if (dummy != "y")
+		{
+			return false;
+		}
+	}
+
 	filebuf iniFileBuffer;
     if (iniFileBuffer.open(fname, ios::in))
   	{
