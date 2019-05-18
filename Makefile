@@ -23,5 +23,5 @@ clean:
 	rm -rf html
 
 pack: clean
-	tar cvf ini.tar *.C *.c *.h *.l .files Doxyfile Doxyfile.tmpl Makefile RCS
+	tar cvf ini.tar *.C *.c *.h *.l .files Doxyfile Doxyfile.tmpl Makefile
 	gzip ini.tar

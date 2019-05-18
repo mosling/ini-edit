@@ -285,18 +285,18 @@ shows the used pointers.
       |node 1|
       +------+
         |  ^
-	succ |  | prev
+   succ |  | prev
         v  |
       +------+
       |node 2|<-----+
       +------+----+ |
       | ^ ^       | |
-		| | |       | |
+      | | |       | |
       | | parent  v |
       | | |  +------+
       n l +- |node 3|
       e a |  +------+
-		x s |       | ^
+      x s |       | ^
       t t parent  v |
       | | |  +------+
       | | +- |node 4|

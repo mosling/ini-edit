@@ -69,24 +69,24 @@ int line;
 %option noyywrap
 %option c++
 
-startsel	\[\[
-endsel	\]\]
-newline	\n
-startcat #C[ \t]*
-endcat	#C\ end
-fincat	#C\ finish
-help		#[ \t]*
+startsel    \[\[
+endsel      \]\]
+newline     \n
+startcat    #C[ \t]*
+endcat      #C\ end
+fincat      #C\ finish
+help        #[ \t]*
 word		[a-zA-Z_0-9+-]+
-delim 	[ \t]*=[ \t]*
+delim 	    [ \t]*=[ \t]*
 seldelim	,[ \t]*
 space		[ \t] 
-skipnl	\\\n
-skipcmt	#-.*\n
+skipnl	    \\\n
+skipcmt	    #-.*\n
 
 %%
-^$\n			{ line++; return IGNO; }
+^$\n		{ line++; return IGNO; }
 {startsel}	{ word = yytext; return SSEL; }
-{endsel}		{ word = yytext; return ESEL; }
+{endsel}	{ word = yytext; return ESEL; }
 ^{startcat}	{ return SCAT; }
 ^{endcat}$	{ return ECAT; }
 ^{fincat}$	{ return FCAT; }
@@ -96,9 +96,9 @@ skipcmt	#-.*\n
 {delim}		{ word = yytext; return DELIM; }
 {seldelim}	{ word = yytext; return SDLM; }
 {space}		{ word = " "; return WSPC; }
-{skipnl}		{ line++; return IGNO; }
+{skipnl}	{ line++; return IGNO; }
 ^{skipcmt}	{ line++; return HCLR; }
-.				{ word = yytext[0]; return CHAR; }
+.			{ word = yytext[0]; return CHAR; }
 %%
 
 //! we have this number of rules
